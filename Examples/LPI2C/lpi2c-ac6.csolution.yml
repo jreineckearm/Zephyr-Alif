@@ -22,6 +22,36 @@ solution:
             start-pname: M55_HE
           images:
             - project-context: LPI2C.Debug
+        - set: J-Link_Debug
+          images:
+            - project-context: LPI2C.Debug
+          debugger:
+            name: J-Link Server
+            port: 3333
+            protocol: swd
+            clock: 4000000
+        - set: ULINKplus_ETR-Trace
+          images:
+            - project-context: LPI2C.Debug
+          debugger:
+            name: ULINKplus@pyOCD
+            protocol: swd
+            clock: 10000000
+            device-settings:
+              FUNNEL_0_INPUT_MASK: 0x6
+              ETR_0_BUFFER_ADDRESS: 0x58000000
+              ETR_0_BUFFER_ADDRESS_HI: 0x00000000
+              ETR_0_AXI_CTL: 0x00000000
+              ETR_0_BUFFER_SIZE: 0x00004000 # 16*4 = 64 KBytes
+              #ETR_0_BUFFER_SIZE: 0x00040000 # 256*4 = 1024 KBytes
+              #ETR_0_BUFFER_SIZE: 0x00020000 # 128*4 = 512 KBytes
+              #ETR_0_BUFFER_SIZE: 0x00010000 # 64*4 = 256 KBytes
+              #ETR_0_BUFFER_SIZE: 0x00008000 # 32*4 = 128 KBytes
+              #ETR_0_BUFFER_SIZE: 0x00004000 # 16*4 = 64 KBytes
+              #ETR_0_BUFFER_SIZE: 0x00002000 # 8*4 KBytes
+            trace:
+              - trace-buffer:
+                mode: file
 
     - type: DevKit-E8
       board: Alif Semiconductor::DevKit-E8

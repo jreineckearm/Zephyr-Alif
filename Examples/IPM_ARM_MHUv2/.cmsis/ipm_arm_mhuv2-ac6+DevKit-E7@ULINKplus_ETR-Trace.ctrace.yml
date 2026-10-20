@@ -1,0 +1,43 @@
+ctrace:
+  created-by: CMSIS Debugger
+  setup:
+    - pname: M55_HE
+      core: Cortex-M55
+      timestamps:
+        itm-prescaler: 4
+      timesync:
+        ITM: "128"
+      data:
+        - location: msg_sent
+          access: RW
+          output: PC
+        - location: msg_received
+          access: RW
+      exceptions:
+      events:
+      itm:
+        enable: 0x0
+      pcsampling:
+        period: 1024
+      synchronization:
+        DWT: 16M
+    - pname: M55_HP
+      core: Cortex-M55
+      timestamps:
+        itm-prescaler: 1
+      timesync:
+        ITM: "128"
+      data:
+        - location: msg_sent
+          access: RW
+          output: PC
+        - location: msg_received
+          access: RW
+      exceptions:
+      events:
+      itm:
+        enable: 0x0
+      pcsampling:
+        period: 1024
+      synchronization:
+        DWT: 16M
