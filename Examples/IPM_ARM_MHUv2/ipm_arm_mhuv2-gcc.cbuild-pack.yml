@@ -1,5 +1,5 @@
 cbuild-pack:
   resolved-packs:
-    - resolved-pack: AlifSemiconductor::Ensemble@2.3.0-traceproto3
+    - resolved-pack: AlifSemiconductor::Ensemble@2.3.0-traceproto4
       selected-by-pack:
         - AlifSemiconductor::Ensemble@^2.0.0-0
